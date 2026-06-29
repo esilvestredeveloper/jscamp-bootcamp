@@ -22,7 +22,8 @@
 
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="empleos.html">Empleos</a>
+      <!-- Podemos agregar un aria-current="page" para definir que el link al que redirige es la página actual -->
+      <a href="empleos.html" aria-current="page">Empleos</a>
       <a href="">Empresas</a>
       <a href="">Salarios</a>
     </nav>
@@ -99,7 +100,8 @@
           <article>
             <div>
               <h3>Ingeniero de Software</h3>
-              <p>Tech Solutions Inc. | Remoto</p>
+              <!-- Para la información complementaria a un artículo, como lo es la ciudad y la empresa, la podemos colocar dentro de un `small` -->
+              <small>Tech Solutions Inc. | Remoto</small>
               <p>Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript,
                 React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de
                 comunicación.</p>
@@ -112,7 +114,7 @@
           <article>
             <div>
               <h3>Analista de Datos</h3>
-              <p>Data Driven Co. | Ciudad de México</p>
+              <small>Data Driven Co. | Ciudad de México</small>
               <p>Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y
                 herramientas de visualización. Se requiere conocimiento en SQL, Python y R.</p>
             </div>
@@ -124,7 +126,7 @@
           <article>
             <div>
               <h3>Desarrollador de Aplicaciones Móviles</h3>
-              <p>Mobile Apps Ltd. | Guadalajara</p>
+              <small>Mobile Apps Ltd. | Guadalajara</small>
               <p>Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe
                 tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
             </div>
@@ -136,7 +138,7 @@
           <article>
             <div>
               <h3>Ingeniero de DevOps</h3>
-              <p>Cloud Services SA | Remoto</p>
+              <small>Cloud Services SA | Remoto</small>
               <p>Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube,
                 automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS,
                 Azure o GCP.</p>
