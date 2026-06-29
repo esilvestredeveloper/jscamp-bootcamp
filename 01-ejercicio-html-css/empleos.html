@@ -1,1 +1,177 @@
-<!-- Aquí el contenido de tu página empleos.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>DevJobs - Empleos</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Resultados de búsqueda de empleos para desarrolladores en DevJobs.">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body id="empleos">
+  <header>
+    <h1>
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+          fill="currentColor"></path>
+      </svg>
+      DevJobs
+    </h1>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="empleos.html">Empleos</a>
+      <a href="">Empresas</a>
+      <a href="">Salarios</a>
+    </nav>
+
+    <div>
+      <a href="">Subir CV</a>
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeG7G_fClYlNDdKTzEHA670Uh9TsfTwHCNng2nJOHZCsw_jzXKbuYg-ldPUGFyi06-RD8U4HtIew9rpl5T8KZpJLMfjHDm4EzNUz8rmjZK31QJTHhMqTY3_Kb8A2X_2zq_sDsq_v05AiSRHLlDPcyX1NmEoPCfW01ygMJcjz3gb0lUUZO_9qQq67stmy6-p1WbZReGs7T6RvlsxS_vN6KZi9UyUHJ80dTs-NADdsMxt3pXS8dF07JN11dXZAZp-UdqyFt7glf9jmA"
+        alt="Foto de perfil" width="40" height="40">
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h1>Encuentra tu próximo trabajo</h1>
+
+      <p>Explora miles de oportunidades en el sector tecnológico.</p>
+
+      <form role="search">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+
+          <input required type="text" placeholder="Buscar trabajos, empresas o habilidades">
+        </div>
+
+        <div>
+          <select name="tecnologia">
+            <option value="">Tecnología</option>
+            <option value="frontend">Frontend</option>
+            <option value="backend">Backend</option>
+            <option value="fullstack">Full Stack</option>
+            <option value="devops">DevOps</option>
+            <option value="datos">Datos</option>
+          </select>
+
+          <select name="ubicacion">
+            <option value="">Ubicación</option>
+            <option value="remoto">Remoto</option>
+            <option value="cdmx">Ciudad de México</option>
+            <option value="guadalajara">Guadalajara</option>
+            <option value="madrid">Madrid</option>
+            <option value="barcelona">Barcelona</option>
+          </select>
+
+          <select name="contrato">
+            <option value="">Tipo de contrato</option>
+            <option value="completa">Jornada completa</option>
+            <option value="parcial">Media jornada</option>
+            <option value="freelance">Freelance</option>
+            <option value="practicas">Prácticas</option>
+          </select>
+
+          <select name="experiencia">
+            <option value="">Nivel de experiencia</option>
+            <option value="junior">Junior</option>
+            <option value="mid">Intermedio</option>
+            <option value="senior">Senior</option>
+          </select>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Resultados de búsqueda</h2>
+
+      <ul>
+        <li>
+          <article>
+            <div>
+              <h3>Ingeniero de Software</h3>
+              <p>Tech Solutions Inc. | Remoto</p>
+              <p>Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript,
+                React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de
+                comunicación.</p>
+            </div>
+            <button type="button">Aplicar</button>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <div>
+              <h3>Analista de Datos</h3>
+              <p>Data Driven Co. | Ciudad de México</p>
+              <p>Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y
+                herramientas de visualización. Se requiere conocimiento en SQL, Python y R.</p>
+            </div>
+            <button type="button">Aplicar</button>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <div>
+              <h3>Desarrollador de Aplicaciones Móviles</h3>
+              <p>Mobile Apps Ltd. | Guadalajara</p>
+              <p>Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe
+                tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
+            </div>
+            <button type="button">Aplicar</button>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <div>
+              <h3>Ingeniero de DevOps</h3>
+              <p>Cloud Services SA | Remoto</p>
+              <p>Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube,
+                automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS,
+                Azure o GCP.</p>
+            </div>
+            <button type="button">Aplicar</button>
+          </article>
+        </li>
+      </ul>
+
+      <nav aria-label="Paginación">
+        <a href="" aria-label="Página anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 6l-6 6l6 6" />
+          </svg>
+        </a>
+        <a href="" aria-current="page">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="" aria-label="Página siguiente">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 6l6 6l-6 6" />
+          </svg>
+        </a>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 2025 DevJobs. Todos los derechos reservados.</small>
+  </footer>
+
+</body>
+
+</html>
