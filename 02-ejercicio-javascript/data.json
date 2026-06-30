@@ -178,5 +178,125 @@
       "modalidad": "monterrey",
       "nivel": "junior"
     }
+  },
+  {
+    "id": "1c9a4f70-2b3e-4d8a-9c61-7f0a2d51e9b4",
+    "titulo": "Desarrollador Full Stack",
+    "empresa": "Innovatech Labs",
+    "ubicacion": "Sevilla",
+    "descripcion": "Buscamos un desarrollador full stack con dominio de React en el frontend y Node.js en el backend. Valoramos experiencia construyendo APIs REST y trabajando con bases de datos relacionales.",
+    "data": {
+      "technology": ["react", "nodejs", "javascript"],
+      "modalidad": "barcelona",
+      "nivel": "senior"
+    }
+  },
+  {
+    "id": "3e7b1d22-9f04-4c5a-8d11-6a2c4b8e0f31",
+    "titulo": "Ingeniero de Datos",
+    "empresa": "DataForge",
+    "ubicacion": "Remoto",
+    "descripcion": "Estamos buscando un ingeniero de datos con experiencia en pipelines ETL, modelado de datos y procesamiento por lotes. Se requiere sólido conocimiento de Python y Java, y nociones de Big Data.",
+    "data": {
+      "technology": ["python", "java"],
+      "modalidad": "remoto",
+      "nivel": "mid"
+    }
+  },
+  {
+    "id": "5a0c8e44-71d6-4b29-9f3a-2e4d7c1a6b89",
+    "titulo": "Desarrollador Backend PHP",
+    "empresa": "WebCore Solutions",
+    "ubicacion": "Guadalajara",
+    "descripcion": "Buscamos un desarrollador backend con experiencia en PHP y frameworks como Laravel. El candidato trabajará en el mantenimiento y evolución de aplicaciones web de alto tráfico.",
+    "data": {
+      "technology": ["php", "javascript"],
+      "modalidad": "guadalajara",
+      "nivel": "junior"
+    }
+  },
+  {
+    "id": "7d2f6a91-43c8-4e07-bb15-9c0a3e5d2f64",
+    "titulo": "Arquitecto de Software",
+    "empresa": "Skyline Systems",
+    "ubicacion": "Monterrey",
+    "descripcion": "Se busca un arquitecto de software para diseñar sistemas escalables y liderar decisiones técnicas. Imprescindible amplia experiencia con Java, C# y patrones de arquitectura de microservicios.",
+    "data": {
+      "technology": ["java", "csharp"],
+      "modalidad": "monterrey",
+      "nivel": "lead"
+    }
+  },
+  {
+    "id": "9b4e1c38-6a72-4d50-8f29-1d6b0a4c7e52",
+    "titulo": "Desarrollador Ruby on Rails",
+    "empresa": "RedGem Studio",
+    "ubicacion": "Remoto",
+    "descripcion": "Estamos buscando un desarrollador con experiencia en Ruby on Rails para construir y mantener aplicaciones web. Se valorará conocimiento en pruebas automatizadas y despliegue continuo.",
+    "data": {
+      "technology": ["ruby", "javascript"],
+      "modalidad": "remoto",
+      "nivel": "mid"
+    }
+  },
+  {
+    "id": "b6c3a07d-58e1-49f4-9a26-3f7d2b1e8c40",
+    "titulo": "Programador de Videojuegos C++",
+    "empresa": "GameWorks Studio",
+    "ubicacion": "Barcelona",
+    "descripcion": "Buscamos un programador de videojuegos con dominio de C++ y motores gráficos. El candidato participará en el desarrollo de mecánicas de juego y optimización de rendimiento en tiempo real.",
+    "data": {
+      "technology": ["c++", "c"],
+      "modalidad": "barcelona",
+      "nivel": "senior"
+    }
+  },
+  {
+    "id": "d8f5b261-1c93-4a87-bf04-5e2a9d7c6310",
+    "titulo": "Frontend Developer Junior",
+    "empresa": "PixelPerfect",
+    "ubicacion": "Ciudad de México",
+    "descripcion": "Se busca desarrollador frontend junior con ganas de aprender. Trabajarás con React y JavaScript moderno construyendo interfaces accesibles y responsivas junto a un equipo senior.",
+    "data": {
+      "technology": ["react", "javascript"],
+      "modalidad": "cdmx",
+      "nivel": "junior"
+    }
+  },
+  {
+    "id": "f0a7c354-92d6-4b18-8e71-6c4b1a0d9f27",
+    "titulo": "Ingeniero Cloud",
+    "empresa": "NubeTech",
+    "ubicacion": "Remoto",
+    "descripcion": "Buscamos un ingeniero cloud con experiencia en automatización de infraestructura y servicios serverless. Se requiere dominio de Python y Node.js, y conocimiento de proveedores cloud.",
+    "data": {
+      "technology": ["python", "nodejs"],
+      "modalidad": "remoto",
+      "nivel": "senior"
+    }
+  },
+  {
+    "id": "a3e9d178-4c50-42b6-9f83-7d1a5c2b6e04",
+    "titulo": "Desarrollador .NET",
+    "empresa": "Enterprise Soft",
+    "ubicacion": "Monterrey",
+    "descripcion": "Estamos buscando un desarrollador .NET con experiencia en C# para el desarrollo de aplicaciones empresariales. Se valorará conocimiento en integración con servicios web y bases de datos SQL.",
+    "data": {
+      "technology": ["csharp", "javascript"],
+      "modalidad": "monterrey",
+      "nivel": "mid"
+    }
+  },
+  {
+    "id": "e7d4f923-8b16-4a07-9c52-3f0b1d6a8e45",
+    "titulo": "Analista QA",
+    "empresa": "TestPro",
+    "ubicacion": "Guadalajara",
+    "descripcion": "Buscamos un analista de QA para diseñar y ejecutar planes de prueba. Se valorará experiencia con automatización en JavaScript y scripting en Python para pruebas de integración.",
+    "data": {
+      "technology": ["javascript", "python"],
+      "modalidad": "guadalajara",
+      "nivel": "junior"
+    }
   }
 ]
