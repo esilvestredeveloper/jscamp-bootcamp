@@ -66,14 +66,22 @@ header {
   background: var(--background);
   padding: .5rem 1rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: .5rem;
 
   h2 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
+  }
+}
+
+@media (min-width: 640px) {
+  header {
+    gap: 2rem;
+    justify-content: space-between;
   }
 }
 
