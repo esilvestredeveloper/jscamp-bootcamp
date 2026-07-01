@@ -421,7 +421,8 @@ article {
     justify-content: space-between;
     gap: 1rem;
 
-    &.is-hidden {
+    &.is-hidden,
+    &.is-page-hidden {
       display: none;
     }
 
