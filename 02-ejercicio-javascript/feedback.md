@@ -1,0 +1,2 @@
+Excelente trabajo! Muy buen JavaScript y excelente uso de los Custom Event para la paginación, me encantó como lo pensaste :)
+A seguir así! Sobre tus dudas en `dudas.md`, ya te las dejamos resueltas, si vuelve a haber otra duda nos lo puedes decir, un saludo!
