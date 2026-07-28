@@ -8,11 +8,13 @@ export function SearchResultsSection({ jobs, currentPage, totalPages, onPageChan
 
             <JobListings jobs={jobs} />
 
-            <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={onPageChange}
-            />
+            {jobs.length > 0 && (
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={onPageChange}
+                />
+            )}
         </section>
     )
 }
