@@ -1,0 +1,12 @@
+/* Estilos JobCard */
+
+button.applied {
+  background-color: #4caf50;
+  cursor: default;
+
+  &:hover,
+  &:focus {
+    background-color: #4caf50;
+    outline: none;
+  }
+}

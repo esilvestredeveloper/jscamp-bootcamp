@@ -1,34 +1,12 @@
 import jobs from '../data.json'
+import { JobListings } from './JobListings'
 
 export function SearchResultsSection() {
     return (
         <section>
             <h2 style={{ textAlign: 'center' }}>Resultados de búsqueda</h2>
 
-            <div className="jobs-listings">
-                {jobs.length === 0 && (
-                    <p>No se han encontrado empleos que coincidan con los criterios de búsqueda.</p>
-                )}
-
-                {jobs.map((job) => (
-                    <article
-                        key={job.id}
-                        className="job-listing-card"
-                        data-modalidad={job.data.modalidad}
-                        data-nivel={job.data.nivel}
-                        data-technology={job.data.technology}
-                    >
-                        <div>
-                            <h3>{job.titulo}</h3>
-                            <small>
-                                {job.empresa} | {job.ubicacion}
-                            </small>
-                            <p>{job.descripcion}</p>
-                        </div>
-                        <button className="button-apply-job">Aplicar</button>
-                    </article>
-                ))}
-            </div>
+            <JobListings jobs={jobs} />
 
             <nav className="pagination">
                 <a href="#">
