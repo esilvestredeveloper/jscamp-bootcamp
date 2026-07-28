@@ -3,6 +3,8 @@ import { Link } from '../components/Link'
 export function NotFoundPage() {
     return (
         <main>
+            <title>Página no encontrada | DevJobs</title>
+
             <section>
                 <h1>404</h1>
 

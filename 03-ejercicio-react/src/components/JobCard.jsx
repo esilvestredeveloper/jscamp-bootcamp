@@ -4,13 +4,14 @@ import styles from './JobCard.module.css'
 export function JobCard({ job }) {
     const { titulo, empresa, ubicacion, descripcion, data } = job
     const [aplicado, setAplicado] = useState(false)
+    const technologies = [].concat(data.technology).join(' ')
 
     return (
         <article
             className="job-listing-card"
             data-modalidad={data.modalidad}
             data-nivel={data.nivel}
-            data-technology={data.technology}
+            data-technology={technologies}
         >
             <div>
                 <h3>{titulo}</h3>
