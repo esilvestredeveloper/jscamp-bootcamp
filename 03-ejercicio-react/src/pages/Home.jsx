@@ -1,4 +1,15 @@
+import { navigateTo } from '../hooks/useRouter'
+
 export function HomePage() {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const text = formData.get('search').trim()
+
+    navigateTo(`/search?text=${encodeURIComponent(text)}`)
+  }
+
   return (
     <main>
       <section>
