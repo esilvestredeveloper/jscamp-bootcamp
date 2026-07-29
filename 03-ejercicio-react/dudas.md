@@ -1,33 +1,32 @@
 # Aquí puedes dejar tus dudas
 
+## Generales
+Siguiendo los videos del curso la verdad es que queda todo claro y es bastante sencillo.
+
+Cualquier feedback es bien recibido.
+
 ## Primera parte
 
-<!-- Dudas de la primera parte del ejercicio -->
+Completado
 
 ## Segunda parte
 
-<!-- Dudas de la segunda parte del ejercicio -->
-
+Completado
 ## Tercera parte
 
-<!-- Dudas de la tercera parte del ejercicio -->
-
+Completado
 ## Cuarta parte
 
-<!-- Dudas de la cuarta parte del ejercicio -->
-
+Completado
 ## Quinta parte
 
-<!-- Dudas de la quinta parte del ejercicio -->
-
+Completado
 ## Sexta parte
 
-<!-- Dudas de la sexta parte del ejercicio -->
-
+Completado
 ## Séptima parte
 
-<!-- Dudas de la séptima parte del ejercicio -->
-
+Completado
 ## Ejercicio extra
 
-<!-- Dudas del ejercicio extra -->
+Completado
