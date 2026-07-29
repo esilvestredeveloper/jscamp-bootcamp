@@ -1,0 +1,66 @@
+.notFound {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.icon {
+    width: 6rem;
+    height: 6rem;
+    color: var(--primary-light);
+    margin-bottom: 1.5rem;
+}
+
+.notFound h1 {
+    display: block;
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.notFound h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.notFound p {
+    color: var(--text-muted);
+    max-width: 28rem;
+    margin-bottom: 2rem;
+}
+
+.notFound code {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-variant-ligatures: none;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.homeButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary-light);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.homeButton:hover,
+.homeButton:focus {
+    background-color: var(--primary-hover);
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.homeButton:active {
+    transform: scale(0.9);
+}
