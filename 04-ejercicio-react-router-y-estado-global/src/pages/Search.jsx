@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router'
 import { Pagination } from '../components/Pagination.jsx'
 import { SearchFormSection } from '../components/SearchFormSection.jsx'
 import { JobListings } from '../components/JobListings.jsx'
+import { Loader } from '../components/Loader.jsx'
 
 const RESULTS_PER_PAGE = 4
 
@@ -138,7 +139,7 @@ export function SearchPage() {
         <section>
           <h2 style={{ textAlign: 'center' }}>Resultados de búsqueda</h2>
 
-          {loading ? <p>Cargando empleos...</p> : <JobListings jobs={jobs} />}
+          {loading ? <Loader text="Cargando empleos..." /> : <JobListings jobs={jobs} />}
 
           <Pagination
               currentPage={currentPage}
@@ -149,3 +150,5 @@ export function SearchPage() {
       </main>
   )
 }
+
+export default SearchPage

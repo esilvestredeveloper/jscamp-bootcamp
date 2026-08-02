@@ -131,6 +131,12 @@
   margin-top: 3rem;
 }
 
+.loadingPage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .status {
   flex: 1;
   display: flex;
