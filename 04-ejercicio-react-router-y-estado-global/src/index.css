@@ -115,7 +115,7 @@ header {
 /* Navegación del header a otras páginas */
 nav {
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   display: flex;
 
   a {
@@ -130,6 +130,22 @@ nav {
       outline: none;
     }
   }
+}
+
+/* Botón de inicio de sesión del Header */
+.button-login {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-light);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.button-login:hover,
+.button-login:focus {
+  background-color: var(--primary-hover);
+  outline: none;
 }
 
 /* Botones del Header */
@@ -455,5 +471,43 @@ article {
   &.is-applied {
     background: #4caf50;
     pointer-events: none;
+  }
+}
+
+.job-listing-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.button-favorite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    border-color: var(--primary-light);
+    color: var(--primary-light);
+    outline: none;
   }
 }
