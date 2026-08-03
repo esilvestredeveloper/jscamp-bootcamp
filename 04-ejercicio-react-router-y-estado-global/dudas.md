@@ -1,5 +1,17 @@
 # Aquí puedes dejar tus dudas
 
+## General
+1. ¿conviene añadir siempre los ficheros package.json y package-lock al repo?
+
+2. He añadido a .gitignore los archivos:
+   - dist/
+   - dist-ssr/
+   - *.local
+   - .vite/
+
+    Ya que entiendo que estos no deben estar en el repo al ser algo que se genera automaticamente para que entienda el navegador
+
+Del resto todo claro, quedo a la espera del feedback :)
 ## Primera parte
 
 <!-- Dudas de la primera parte del ejercicio -->
