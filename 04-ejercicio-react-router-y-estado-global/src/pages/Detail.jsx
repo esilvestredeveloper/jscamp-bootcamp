@@ -4,6 +4,7 @@ import snarkdown from 'snarkdown'
 
 import { Link } from '../components/Link.jsx'
 import { Loader } from '../components/Loader.jsx'
+import { ApplyButton } from '../components/ApplyButton.jsx'
 import styles from './Detail.module.css'
 
 const API_URL = 'https://jscamp-api.vercel.app/api/jobs'
@@ -25,7 +26,6 @@ export function DetailPage() {
     const [job, setJob] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const [isApplied, setIsApplied] = useState(false)
 
     useEffect(() => {
         const controller = new AbortController()
@@ -56,10 +56,6 @@ export function DetailPage() {
         return () => controller.abort()
     }, [id])
 
-    useEffect(() => {
-        setIsApplied(false)
-    }, [id])
-
     if (loading) {
         return (
             <main className={styles.loadingPage}>
@@ -80,9 +76,6 @@ export function DetailPage() {
         )
     }
 
-    const buttonClasses = isApplied ? `${styles.applyButton} ${styles.isApplied}` : styles.applyButton
-    const buttonText = isApplied ? 'Aplicado' : 'Aplicar ahora'
-
     return (
         <main className={styles.detail}>
             <title>{`${job.titulo} en ${job.empresa} - DevJobs`}</title>
@@ -102,9 +95,13 @@ export function DetailPage() {
                     </p>
                 </div>
 
-                <button className={buttonClasses} onClick={() => setIsApplied(true)}>
-                    {buttonText}
-                </button>
+                <ApplyButton
+                    jobId={job.id}
+                    className={styles.applyButton}
+                    appliedClassName={styles.isApplied}
+                    textApply="Aplicar ahora"
+                    textLoggedOut="Inicia sesión para aplicar"
+                />
             </header>
 
             <JobSection title="Descripción del puesto" content={job.content?.description} />
@@ -113,9 +110,13 @@ export function DetailPage() {
             <JobSection title="Acerca de la empresa" content={job.content?.about} />
 
             <div className={styles.footerActions}>
-                <button className={buttonClasses} onClick={() => setIsApplied(true)}>
-                    {buttonText}
-                </button>
+                <ApplyButton
+                    jobId={job.id}
+                    className={styles.applyButton}
+                    appliedClassName={styles.isApplied}
+                    textApply="Aplicar ahora"
+                    textLoggedOut="Inicia sesión para aplicar"
+                />
             </div>
         </main>
     )

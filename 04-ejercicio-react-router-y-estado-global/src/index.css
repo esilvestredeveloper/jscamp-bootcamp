@@ -480,6 +480,7 @@ article {
   align-items: stretch;
   gap: 0.5rem;
   flex-shrink: 0;
+  width: 11.5rem;
 }
 
 .button-favorite {
@@ -509,5 +510,25 @@ article {
     border-color: var(--primary-light);
     color: var(--primary-light);
     outline: none;
+  }
+
+  &.is-favorite {
+    border-color: var(--primary-light);
+    color: var(--primary-light);
+  }
+}
+
+/* Contador de favoritos del Header */
+.favorites-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary-light);
+
+  svg {
+    width: 1rem;
+    height: 1rem;
   }
 }

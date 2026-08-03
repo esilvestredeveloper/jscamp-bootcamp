@@ -1,5 +1,7 @@
 import { Link } from './Link'
 import { NavLink } from './NavLink.jsx'
+import { AuthButton } from './AuthButton.jsx'
+import { FavoritesCounter } from './FavoritesCounter.jsx'
 
 export function Header() {
     return (
@@ -29,7 +31,9 @@ export function Header() {
 
                 <NavLink href="/search">Empleos</NavLink>
 
-                <button className="button-login">Iniciar sesión</button>
+                <FavoritesCounter />
+
+                <AuthButton />
             </nav>
         </header>
     )
