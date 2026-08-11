@@ -40,13 +40,23 @@ const elementos = await Promise.all(
   })
 )
 
+const soloArchivos = flags.includes('--files')
+const soloCarpetas = flags.includes('--folders')
+
+const mostrarArchivos = soloArchivos || !soloCarpetas
+const mostrarCarpetas = soloCarpetas || !soloArchivos
+
+const visibles = elementos.filter(({ esDirectorio }) =>
+  esDirectorio ? mostrarCarpetas : mostrarArchivos
+)
+
 if (flags.includes('--asc')) {
-  elementos.sort((a, b) => a.nombre.localeCompare(b.nombre))
+  visibles.sort((a, b) => a.nombre.localeCompare(b.nombre))
 } else if (flags.includes('--desc')) {
-  elementos.sort((a, b) => b.nombre.localeCompare(a.nombre))
+  visibles.sort((a, b) => b.nombre.localeCompare(a.nombre))
 }
 
-elementos.forEach(({ nombre, esDirectorio, tamaño }) => {
+visibles.forEach(({ nombre, esDirectorio, tamaño }) => {
   const icono = esDirectorio ? '📁' : '📄'
 
   console.log(`${icono} ${nombre.padEnd(26)}${tamaño}`)
