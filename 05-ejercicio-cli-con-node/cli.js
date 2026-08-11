@@ -1,5 +1,5 @@
 import { readdir, stat } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 
 const UNIDADES = ['B', 'KB', 'MB', 'GB', 'TB']
 
@@ -17,6 +17,13 @@ const esFlag = (argumento) => argumento.startsWith('--')
 const argumentos = process.argv.slice(2)
 const flags = argumentos.filter(esFlag)
 const directorio = argumentos.find((argumento) => !esFlag(argumento)) ?? '.'
+
+if (process.permission && !process.permission.has('fs.read', resolve(directorio))) {
+  console.error(`Sin permiso de lectura sobre "${directorio}".`)
+  console.error('Vuelve a lanzarlo concediendo el acceso:')
+  console.error(`  node --experimental-permission --allow-fs-read=./cli.js --allow-fs-read=${directorio} cli.js ${directorio}`)
+  process.exit(1)
+}
 
 let nombres
 
