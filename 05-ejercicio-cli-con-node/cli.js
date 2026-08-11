@@ -12,7 +12,11 @@ const formatSize = (bytes) => {
   return `${tamaño.toFixed(2)} ${UNIDADES[indice]}`
 }
 
-const directorio = process.argv[2] ?? '.'
+const esFlag = (argumento) => argumento.startsWith('--')
+
+const argumentos = process.argv.slice(2)
+const flags = argumentos.filter(esFlag)
+const directorio = argumentos.find((argumento) => !esFlag(argumento)) ?? '.'
 
 let nombres
 
@@ -35,6 +39,12 @@ const elementos = await Promise.all(
     }
   })
 )
+
+if (flags.includes('--asc')) {
+  elementos.sort((a, b) => a.nombre.localeCompare(b.nombre))
+} else if (flags.includes('--desc')) {
+  elementos.sort((a, b) => b.nombre.localeCompare(a.nombre))
+}
 
 elementos.forEach(({ nombre, esDirectorio, tamaño }) => {
   const icono = esDirectorio ? '📁' : '📄'
