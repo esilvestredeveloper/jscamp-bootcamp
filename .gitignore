@@ -1,3 +1,9 @@
 .idea/
 .DS_Store
 node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+05-ejercicio-cli-con-node/src
+06-ejercicio-servidor-con-node/.env
