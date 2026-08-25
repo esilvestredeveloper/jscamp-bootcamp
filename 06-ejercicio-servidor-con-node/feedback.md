@@ -6,3 +6,9 @@ No borres el código, te va a servir para más adelante. Si puedes, renombra el 
 
 La idea es entender cómo funcionan los métodos nativos de node para poder crear un servidor web.
 Y en el ejercicio siguiente, ver cómo se soluciona todo con express.
+
+**Emilio**: He vuelto a hacer el ejercicio, esta vez con node puro, me parecía más fácil de la otra forma, aunque pensaba que se tenía que usar express
+
+Cualquier feedback estoy atento.
+
+PD: Muchísimas gracias por responder las dudas, sobre todo lo de los paquetes, ya que me parece muy buen consejo. Mil gracias!!
