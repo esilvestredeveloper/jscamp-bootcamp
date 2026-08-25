@@ -12,3 +12,10 @@ Y en el ejercicio siguiente, ver cómo se soluciona todo con express.
 Cualquier feedback estoy atento.
 
 PD: Muchísimas gracias por responder las dudas, sobre todo lo de los paquetes, ya que me parece muy buen consejo. Mil gracias!!
+
+---
+
+Excelente trabajo! Disculpa que te hayamos hecho hacer todo nuevamente, la buena noticia es que lo hiciste increíble :)
+Dejamos algunos cambios con sus anotaciones en el código, cualquier cosa nos puedes comentar, estamos para eso.
+
+Un saludo y a seguir trabajando! Lo vas haciendo muy bien
