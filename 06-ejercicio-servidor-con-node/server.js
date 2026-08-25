@@ -1,9 +1,12 @@
-import { createServer } from 'node:http'
-import { randomUUID } from 'node:crypto'
+import { randomUUID } from 'node:crypto';
+import { createServer } from 'node:http';
 
-process.loadEnvFile()
+// Si no existe .env, evitamos que haya errores por querer leer un archivo que no existe.
+let port = 3000
+try {
+  port = process.loadEnvFile() ? process.env.PORT : port
+} catch {}
 
-const port = process.env.PORT || 3000
 
 const users = [
   { id: 'a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d', name: 'Miguel', age: 28 },
@@ -26,8 +29,14 @@ const json = async (req) => {
     body += chunk
   }
 
-  // Si body está vacío devolvemos {}
-  return body ? JSON.parse(body) : {}
+  // Si body está vacío devolvemos {}; si el JSON es malformado devolvemos null en vez de lanzar un error
+  if (!body) return {}
+
+  try {
+    return JSON.parse(body)
+  } catch {
+    return null
+  }
 }
 
 // Envía una respuesta en JSON
@@ -47,8 +56,8 @@ const server = createServer(async (req, res) => {
     const name = searchParams.get('name')
     const limit = searchParams.get('limit')
     const offset = searchParams.get('offset')
-    const minAge = searchParams.get('minAge')
-    const maxAge = searchParams.get('maxAge')
+    const minAge = Number(searchParams.get('minAge'))
+    const maxAge = Number(searchParams.get('maxAge'))
     let filteredUsers = users
 
     // Filtrado por nombre
@@ -58,14 +67,13 @@ const server = createServer(async (req, res) => {
       )
     }
 
-    // Filtrado por edad mínima
-    if (minAge) {
-      filteredUsers = filteredUsers.filter(user => user.age >= Number(minAge))
+    // con esta validación nos aseguramos de que el valor no sea Infinity, -Infinity, NaN ni decimal (por .isIneger()) y negativo
+    if (Number.isInteger(minAge) && minAge > 0) {
+      filteredUsers = filteredUsers.filter(user => user.age >= minAge)
     }
 
-    // Filtrado por edad máxima
-    if (maxAge) {
-      filteredUsers = filteredUsers.filter(user => user.age <= Number(maxAge))
+    if (Number.isInteger(maxAge) && maxAge > 0) {
+      filteredUsers = filteredUsers.filter(user => user.age <= maxAge)
     }
 
     // Paginación usando limit y offset
@@ -81,13 +89,18 @@ const server = createServer(async (req, res) => {
   // POST /users - Crea nuevo usuario
   if (req.method === 'POST' && pathname === '/users') {
 
-    const { name, age } = await json(req)
+    const data = await json(req)
+
+    // Respondemos 400 si el body es inválido o faltan campos, en vez de crear un usuario con undefined
+    if (!data || !data.name || !Number.isInteger(data.age) || data.age <= 0) {
+      return sendJSON(res, 400, { error: 'El body debe incluir name y un age entero positivo' })
+    }
 
     // Creamos el usuario generando un ID único
     const newUser = {
       id: randomUUID(),
-      name,
-      age
+      name: data.name,
+      age: data.age
     }
 
     // Guardamos en el array y devolvemos status 201 (creado)
