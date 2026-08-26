@@ -19,3 +19,8 @@ Excelente trabajo! Disculpa que te hayamos hecho hacer todo nuevamente, la buena
 Dejamos algunos cambios con sus anotaciones en el código, cualquier cosa nos puedes comentar, estamos para eso.
 
 Un saludo y a seguir trabajando! Lo vas haciendo muy bien
+
+
+Emilio: muchas gracias por el feedback Mateo, tomo nota de los cambios.
+Lo de repetir la práctica nada que disculpar mia culpa y además es otra forma de apender.
+Muy agradecido, continuamos con la siguiente!!
