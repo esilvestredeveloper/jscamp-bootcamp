@@ -11,3 +11,12 @@ jobsRouter.get('/:id', JobController.getId)
 
 // POST /jobs -> crea un job
 jobsRouter.post('/', JobController.create)
+
+// PUT /jobs/:id -> actualiza un job completo
+jobsRouter.put('/:id', JobController.update)
+
+// PATCH /jobs/:id -> actualiza parcialmente un job
+jobsRouter.patch('/:id', JobController.partialUpdate)
+
+// DELETE /jobs/:id -> elimina un job
+jobsRouter.delete('/:id', JobController.delete)

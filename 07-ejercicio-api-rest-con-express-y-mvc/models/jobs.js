@@ -66,4 +66,39 @@ export class JobModel {
 
     return newJob
   }
+
+  // Reemplaza todos los campos del job menos id
+  static update (id, { titulo, empresa, ubicacion, descripcion, data, content }) {
+    const index = jobs.findIndex(job => job.id === id)
+    if (index === -1) return undefined
+
+    jobs[index] = { id, titulo, empresa, ubicacion, descripcion, data, content }
+
+    return jobs[index]
+  }
+
+  // Actualiza solo los campos que vienen
+  static partialUpdate (id, fields) {
+    const index = jobs.findIndex(job => job.id === id)
+    if (index === -1) return undefined
+
+    // Quitamos los campos undefined para no reemplazar los existentes
+    const newFields = Object.fromEntries(
+      Object.entries(fields).filter(([, value]) => value !== undefined)
+    )
+
+    jobs[index] = { ...jobs[index], ...newFields }
+
+    return jobs[index]
+  }
+
+  // Elimina el job del array, devuelve false si no existe
+  static delete (id) {
+    const index = jobs.findIndex(job => job.id === id)
+    if (index === -1) return false
+
+    jobs.splice(index, 1)
+
+    return true
+  }
 }

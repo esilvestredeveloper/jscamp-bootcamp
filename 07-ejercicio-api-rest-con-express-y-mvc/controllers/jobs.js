@@ -44,4 +44,45 @@ export class JobController {
     // Respondemos 201 Created con el job creado
     return res.status(201).json(newJob)
   }
+
+  // PUT /jobs/:id
+  static update (req, res) {
+    const { id } = req.params
+    const { titulo, empresa, ubicacion, descripcion, data, content } = req.body
+
+    // Al actualizar el job entero, los campos obligatorios deben venir
+    if (!titulo || !empresa || !ubicacion || !descripcion) {
+      return res.status(400).json({ error: 'titulo, empresa, ubicacion y descripcion son obligatorios' })
+    }
+
+    const updatedJob = JobModel.update(id, { titulo, empresa, ubicacion, descripcion, data, content })
+
+    if (!updatedJob) return res.status(404).json({ error: 'Job not found' })
+
+    return res.json(updatedJob)
+  }
+
+  // PATCH /jobs/:id
+  static partialUpdate (req, res) {
+    const { id } = req.params
+    const { titulo, empresa, ubicacion, descripcion, data, content } = req.body
+
+    const updatedJob = JobModel.partialUpdate(id, { titulo, empresa, ubicacion, descripcion, data, content })
+
+    if (!updatedJob) return res.status(404).json({ error: 'Job not found' })
+
+    return res.json(updatedJob)
+  }
+
+  // DELETE /jobs/:id
+  static delete (req, res) {
+    const { id } = req.params
+
+    const deleted = JobModel.delete(id)
+
+    if (!deleted) return res.status(404).json({ error: 'Job not found' })
+
+    // 204 No Content: borrado correcto y sin nada que devolver
+    return res.status(204).send()
+  }
 }
