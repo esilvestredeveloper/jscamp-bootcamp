@@ -43,4 +43,9 @@ export class JobModel {
     // total = cuántos jobs cumplen los filtros (antes de paginar)
     return { data, total: filteredJobs.length }
   }
+
+  // Busca job por id (undefined si no existe)
+  static getById (id) {
+    return jobs.find(job => job.id === id)
+  }
 }

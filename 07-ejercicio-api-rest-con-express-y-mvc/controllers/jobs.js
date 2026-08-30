@@ -18,4 +18,15 @@ export class JobController {
     // Respondemos con 200 por defecto
     return res.json({ data, total, limit, offset })
   }
+
+  // GET /jobs/:id
+  static getId (req, res) {
+    const { id } = req.params
+    const job = JobModel.getById(id)
+
+    // Si no existe respondemos 404
+    if (!job) return res.status(404).json({ error: 'Job not found' })
+
+    return res.json(job)
+  }
 }
