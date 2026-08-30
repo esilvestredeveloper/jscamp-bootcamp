@@ -1,9 +1,14 @@
 import express from 'express'
 import { jobsRouter } from './routes/jobs.js'
+import { DEFAULTS } from './config.js'
 
-const PORT = 3000
+const PORT = process.env.PORT ?? DEFAULTS.PORT
 const app = express()
 
+// Middleware parsea body JSON de las peticiones y lo deja en req.body
+app.use(express.json())
+
+// Delegamos las rutas que empiezan por /jobs al router de jobs
 app.use('/jobs', jobsRouter)
 
 app.listen(PORT, () => {
