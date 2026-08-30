@@ -1,4 +1,46 @@
 import jobs from '../jobs.json' with { type: 'json' }
 
-/* Aquí deberá ir la lógica de tu modelo */
-/* Recuerda que el modelo SOLO debe manejar la lógica de los datos, en este caso nuestro JSON */
+/* Modelo: SOLO maneja los datos (no sabe nada de HTTP) */
+
+export class JobModel {
+  // Devuelve los jobs filtrados, ya paginados, y el total sin paginar
+  static getAll ({ text, title, level, technology, limit, offset }) {
+    let filteredJobs = jobs
+
+    // Filtro por título (case insensitive)
+    if (title) {
+      filteredJobs = filteredJobs.filter(job =>
+        job.titulo.toLowerCase().includes(title.toLowerCase())
+      )
+    }
+
+    // Filtro por texto: busca en título y descripción (case insensitive)
+    if (text) {
+      const search = text.toLowerCase()
+      filteredJobs = filteredJobs.filter(job =>
+        job.titulo.toLowerCase().includes(search) ||
+        job.descripcion.toLowerCase().includes(search)
+      )
+    }
+
+    // Filtro por nivel (junior, mid, senior...)
+    if (level) {
+      filteredJobs = filteredJobs.filter(job =>
+        job.data.nivel.toLowerCase() === level.toLowerCase()
+      )
+    }
+
+    // Filtro por tecnología: comprobamos si está en el array data.technology
+    if (technology) {
+      filteredJobs = filteredJobs.filter(job =>
+        job.data.technology.some(tech => tech.toLowerCase() === technology.toLowerCase())
+      )
+    }
+
+    // Paginación: desde offset hasta offset + limit
+    const data = filteredJobs.slice(offset, offset + limit)
+
+    // total = cuántos jobs cumplen los filtros (antes de paginar)
+    return { data, total: filteredJobs.length }
+  }
+}
