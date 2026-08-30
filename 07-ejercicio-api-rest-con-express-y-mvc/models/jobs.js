@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import jobs from '../jobs.json' with { type: 'json' }
 
 /* Modelo: SOLO maneja los datos (no sabe nada de HTTP) */
@@ -47,5 +48,22 @@ export class JobModel {
   // Busca job por id (undefined si no existe)
   static getById (id) {
     return jobs.find(job => job.id === id)
+  }
+
+  // Crea un job y lo añade al array
+  static create ({ titulo, empresa, ubicacion, descripcion, data, content }) {
+    const newJob = {
+      id: randomUUID(),
+      titulo,
+      empresa,
+      ubicacion,
+      descripcion,
+      data,
+      content
+    }
+
+    jobs.push(newJob)
+
+    return newJob
   }
 }

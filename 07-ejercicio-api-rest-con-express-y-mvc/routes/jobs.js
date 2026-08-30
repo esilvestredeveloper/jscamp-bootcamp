@@ -8,3 +8,6 @@ jobsRouter.get('/', JobController.getAll)
 
 // GET /jobs/:id -> obtén un job por id
 jobsRouter.get('/:id', JobController.getId)
+
+// POST /jobs -> crea un job
+jobsRouter.post('/', JobController.create)

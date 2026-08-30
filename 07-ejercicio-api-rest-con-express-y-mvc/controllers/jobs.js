@@ -29,4 +29,19 @@ export class JobController {
 
     return res.json(job)
   }
+
+  // POST /jobs
+  static create (req, res) {
+    const { titulo, empresa, ubicacion, descripcion, data, content } = req.body
+
+    // Campos obligatorios, si falta alguno respondemos 400
+    if (!titulo || !empresa || !ubicacion || !descripcion) {
+      return res.status(400).json({ error: 'titulo, empresa, ubicacion y descripcion son obligatorios' })
+    }
+
+    const newJob = JobModel.create({ titulo, empresa, ubicacion, descripcion, data, content })
+
+    // Respondemos 201 Created con el job creado
+    return res.status(201).json(newJob)
+  }
 }
