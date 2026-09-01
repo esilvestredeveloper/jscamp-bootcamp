@@ -18,10 +18,13 @@ const argumentos = process.argv.slice(2)
 const flags = argumentos.filter(esFlag)
 const directorio = argumentos.find((argumento) => !esFlag(argumento)) ?? '.'
 
-if (process.permission && !process.permission.has('fs.read', resolve(directorio))) {
+// Muy bien, pero mira, con `.?` podemos simplificar el `if`. Si `process.permission` es undefined, ya daremos `false` como resultado.
+// Por otro lado `permission` ya no es experimental, así que podemos usar `--permission` en lugar de `--experimental-permission`.
+// if (process.permission && !process.permission.has('fs.read', resolve(directorio))) {
+if(!process.permission?.has('fs.read', resolve(directorio))) {
   console.error(`Sin permiso de lectura sobre "${directorio}".`)
   console.error('Vuelve a lanzarlo concediendo el acceso:')
-  console.error(`  node --experimental-permission --allow-fs-read=./cli.js --allow-fs-read=${directorio} cli.js ${directorio}`)
+  console.error(`  node --permission --allow-fs-read=${directorio} cli.js ${directorio}`)
   process.exit(1)
 }
 
@@ -63,8 +66,19 @@ if (flags.includes('--asc')) {
   visibles.sort((a, b) => b.nombre.localeCompare(a.nombre))
 }
 
+// Lo que hiciste está genial! No está mal, te voy a mostrar una alternativa con `console.table` para que pruebes y veas como se ve. Para estos casos de lista, puede quedar muy lindo visualmente en la consola.
+
+let logArguments = []
+
 visibles.forEach(({ nombre, esDirectorio, tamaño }) => {
   const icono = esDirectorio ? '📁' : '📄'
 
-  console.log(`${icono} ${nombre.padEnd(26)}${tamaño}`)
+  logArguments.push({
+    type: icono,
+    name: nombre,
+    size: tamaño
+  })
+  // console.log(`${icono} ${nombre.padEnd(26)}${tamaño}`)
 })
+
+console.table(logArguments)
