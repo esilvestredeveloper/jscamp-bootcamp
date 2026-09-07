@@ -51,3 +51,36 @@ test('un usuario puede entrar en una oferta y aplicar', async ({ page }) => {
 
   await expect(page.getByRole('button', { name: 'Aplicado' }).first()).toBeVisible()
 })
+
+test.describe('filtros', () => {
+  test('filtrar por ubicación deja solo ofertas remotas', async ({ page }) => {
+    await page.goto(`${APP_URL}/search`)
+
+    const jobCards = page.locator('.job-listing-card')
+    await expect(jobCards.first()).toBeVisible()
+
+    // Los select no tienen label, así que los pedimos por id
+    await page.locator('#filter-location').selectOption('remoto')
+
+    await expect(page).toHaveURL(/type=remoto/)
+    await expect(jobCards).not.toHaveCount(0)
+
+    // Cada tarjeta pinta "Empresa | Ubicación", no debe quedar ninguna sin Remoto
+    await expect(jobCards.filter({ hasNotText: 'Remoto' })).toHaveCount(0)
+  })
+
+  test('filtrar por nivel deja solo ofertas senior', async ({ page }) => {
+    await page.goto(`${APP_URL}/search`)
+
+    const jobCards = page.locator('.job-listing-card')
+    await expect(jobCards.first()).toBeVisible()
+
+    await page.locator('#filter-experience-level').selectOption('senior')
+
+    await expect(page).toHaveURL(/level=senior/)
+    await expect(jobCards).not.toHaveCount(0)
+
+    // El nivel no sale en el texto de la tarjeta, lo lleva en un data attribute
+    await expect(page.locator('.job-listing-card:not([data-nivel="senior"])')).toHaveCount(0)
+  })
+})
