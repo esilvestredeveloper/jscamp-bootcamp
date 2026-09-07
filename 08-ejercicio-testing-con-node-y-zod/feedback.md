@@ -8,3 +8,5 @@ Lo que hicimos fue:
 
 Cualquier duda nos puedes comentar, si?
 Excelente trabajo!
+
+**Respuesta Emilio:** Muchas gracias Mateo, tomo nota sobre todo de la optimización del código y el otro punto para la dependencia de los test, imagino que son cosas que vas adquiriendo por experiencia.
