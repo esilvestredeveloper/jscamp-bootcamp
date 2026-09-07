@@ -23,3 +23,31 @@ test('buscar por tecnología devuelve resultados', async ({ page }) => {
   await expect(jobCards).not.toHaveCount(0)
   await expect(jobCards.first()).toBeVisible()
 })
+
+test('un usuario puede entrar en una oferta y aplicar', async ({ page }) => {
+  await page.goto(APP_URL)
+
+  await page.getByRole('searchbox').fill('JavaScript')
+  await page.getByRole('button', { name: 'Buscar' }).click()
+
+  const firstJob = page.locator('.job-listing-card').first()
+  await expect(firstJob).toBeVisible()
+
+  // Guardamos el título para reconocer la oferta
+  const jobTitle = await firstJob.getByRole('heading', { level: 3 }).innerText()
+
+  await firstJob.getByRole('link').click()
+
+  // En el detalle el mismo título pasa de h3 a h1
+  await expect(page.getByRole('heading', { level: 1, name: jobTitle })).toBeVisible()
+
+  // Sin sesión iniciada la app no deja aplicar
+  await expect(page.getByRole('button', { name: 'Inicia sesión para aplicar' }).first()).toBeDisabled()
+
+  await page.getByRole('button', { name: 'Iniciar sesión' }).click()
+
+  // El detalle repite el botón arriba y abajo, nos quedamos con el primero
+  await page.getByRole('button', { name: 'Aplicar ahora' }).first().click()
+
+  await expect(page.getByRole('button', { name: 'Aplicado' }).first()).toBeVisible()
+})
