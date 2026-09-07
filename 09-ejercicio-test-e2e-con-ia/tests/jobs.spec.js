@@ -84,3 +84,48 @@ test.describe('filtros', () => {
     await expect(page.locator('.job-listing-card:not([data-nivel="senior"])')).toHaveCount(0)
   })
 })
+
+test.describe('paginación', () => {
+  // La app tiene otro nav en la cabecera, cogemos el que lleva los números de página
+  const pagination = (page) =>
+    page.locator('nav').filter({ has: page.getByRole('link', { name: '1', exact: true }) })
+
+  const segundaPagina = (page) => pagination(page).getByRole('link', { name: '2', exact: true })
+
+  test('aparece la paginación cuando hay más ofertas de las que caben', async ({ page }) => {
+    await page.goto(`${APP_URL}/search`)
+
+    await expect(page.locator('.job-listing-card').first()).toBeVisible()
+
+    // Si hay enlace a la segunda es que no caben todas en la primera
+    await expect(segundaPagina(page)).toBeVisible()
+  })
+
+  test('con una sola oferta no hay más páginas', async ({ page }) => {
+    // Búsqueda estrecha a propósito, de esta solo hay una oferta
+    await page.goto(`${APP_URL}/search?text=ciberseguridad`)
+
+    await expect(page.locator('.job-listing-card')).toHaveCount(1)
+
+    // El bloque se sigue pintando aunque sobre, por eso lo damos por visible
+    await expect(pagination(page)).toBeVisible()
+    await expect(segundaPagina(page)).toHaveCount(0)
+  })
+
+  test('pasar a la siguiente página cambia los resultados', async ({ page }) => {
+    await page.goto(`${APP_URL}/search`)
+
+    const primerTitulo = page.locator('.job-listing-card').first().getByRole('heading', { level: 3 })
+    await expect(primerTitulo).toBeVisible()
+
+    const tituloPagina1 = await primerTitulo.innerText()
+
+    // La flecha de siguiente es el último enlace
+    await pagination(page).locator('a').last().click()
+
+    await expect(page).toHaveURL(/page=2/)
+
+    // Reintenta hasta que se repinta la lista con las ofertas de la otra página
+    await expect(primerTitulo).not.toHaveText(tituloPagina1)
+  })
+})
