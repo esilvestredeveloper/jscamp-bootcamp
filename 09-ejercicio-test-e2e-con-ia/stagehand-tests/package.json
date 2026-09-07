@@ -1,0 +1,15 @@
+{
+  "name": "stagehand-tests",
+  "version": "1.0.0",
+  "description": "Tests E2E con IA sobre DevJobs usando Stagehand y un modelo local",
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-timeout=600000"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@browserbasehq/stagehand": "^3.7.3",
+    "dotenv": "^17.4.2",
+    "zod": "^4.5.4"
+  }
+}
