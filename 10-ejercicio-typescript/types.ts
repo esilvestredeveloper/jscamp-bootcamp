@@ -23,3 +23,6 @@ export type Technology =
   | 'php'
   | 'ruby'
   | 'c#'
+  // Añadimos estas dos, ya que aparecén en arrays.ts
+  | 'tailwind'
+  | 'css'
