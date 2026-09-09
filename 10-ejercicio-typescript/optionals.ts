@@ -1,4 +1,5 @@
-/* Aquí deberás tipar los parámetros y el valor de retorno de las funciones, teniendo en cuenta que existen parámetros opcionales y valores por defecto */
+import type { Job } from './objects.ts'
+import type { ExperienceLevel, Technology, WorkMode } from './types.ts'
 
 import {
   searchJobs,
@@ -7,8 +8,17 @@ import {
   filterByMinSalary,
 } from './functions.ts'
 
+// Cada filtro es opcional para poder combinarlos
+export type SearchOptions = {
+  text?: string
+  level?: ExperienceLevel
+  technology?: Technology
+  minSalary?: number
+  workMode?: WorkMode
+}
+
 // Función de búsqueda avanzada con opcionales
-export function advancedSearch(jobs: any[], options: any): any[] {
+export function advancedSearch(jobs: Job[], options: SearchOptions): Job[] {
   let results = jobs
 
   if (options.text) {
@@ -35,7 +45,7 @@ export function advancedSearch(jobs: any[], options: any): any[] {
 }
 
 // Función con valores por defecto
-export function getRecentJobs(jobs: any[], days: any): any[] {
+export function getRecentJobs(jobs: Job[], days: number = 30): Job[] {
   const cutoffDate = new Date()
   cutoffDate.setDate(cutoffDate.getDate() - days)
 
