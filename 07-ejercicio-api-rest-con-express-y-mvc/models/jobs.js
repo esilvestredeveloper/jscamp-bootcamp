@@ -84,7 +84,7 @@ export class JobModel {
 
     // Quitamos los campos undefined para no reemplazar los existentes
     const newFields = Object.fromEntries(
-      Object.entries(fields).filter(([, value]) => value !== undefined)
+      Object.entries(fields).filter(([, value]) =>  key !== 'id' && value !== undefined) // Evitamos reemplzar el ID, ese campo es el único que no puede cambiar
     )
 
     jobs[index] = { ...jobs[index], ...newFields }
