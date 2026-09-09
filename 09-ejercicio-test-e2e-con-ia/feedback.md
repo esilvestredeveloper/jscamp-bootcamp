@@ -5,3 +5,5 @@ Puede ser que haya quedado algún archivo en `04-ejercicio-react-router-y-estado
 Sin errores del type="text" -> type="search" en el index de la aplicación.
 
 Si no no quedó nada por subir y los tests te corren, avísame y reviso nuevamente que puede estar pasando.
+
+**Respuesta Emilio:** Toda la razón, los acabo de subir. Dime si así te funciona; si no, dime cualquier cosa por Discord y lo vemos.
