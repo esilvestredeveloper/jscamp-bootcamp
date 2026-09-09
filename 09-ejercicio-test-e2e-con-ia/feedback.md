@@ -21,3 +21,8 @@ Sobre el resto de los tests, nada que decir, lo implementaste súper bien.
 Felicidades!
 
 Solo un detalle que se me olvidaba, en `.gitignore` agregamos las carpetas generadas por Playwright, para evitar que suban al repositorio. Lo ideal es que estas carpetas 100% complementarias a los tests locales queden ocultas al repo. Sobre todo con el tiempo: se van agregando más y más archivos lo que hace que crezca mucho el tamaño global.
+
+
+**Respuesta Emilio:** Muchas gracias por el feedback Mateo!
+
+Lo del gitignore toda la razón y te agradezco la explicación. También toda la info sobre los modelos, en IA estoy mirando opciones (otro que ha pensado lo del Mac Mini), pero si no le volveré a dar una oportunidad a GPT
