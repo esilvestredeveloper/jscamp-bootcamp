@@ -1,1 +1,1 @@
-<!-- Aquí puedes poner tus dudas sobre el ejercicio -->
+En principio todo claro, me ha resultado bastante sencillo
