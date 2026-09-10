@@ -5,3 +5,6 @@ Hicimos un cambio totalmente a modo personal en `narrowing.ts` para que veas una
 
 El resto de tareas lo haz hecho perfecto.
 Felicidades!
+
+**Respuesta Emilio:** Muchas gracias Mateo!
+Agradezco mucho que me hayas explicado ese cambio, de esa forma la verdad es que mucho más sencillo y claro. Me compliqué un poco la vida
