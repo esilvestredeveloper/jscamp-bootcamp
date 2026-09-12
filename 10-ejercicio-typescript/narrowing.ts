@@ -1,17 +1,18 @@
 import type { Candidate, Job } from './objects.ts'
+import type { ExperienceLevel } from './types.ts'
+
+// Esto no estaba dentro de la consigna pero me parece una buena obserrvación que te quiero dejar para usar Record y para prescindir del uso de ternarias.
+const REQUIRED_YEARS: Record<ExperienceLevel, number> = {
+  junior: 0,
+  mid: 2,
+  senior: 5,
+  lead: 8,
+}
 
 // Validar candidato para un empleo
 export function isQualified(candidate: Candidate, job: Job): boolean {
   // Verificar años de experiencia
-  // Corrige los literales
-  const requiredYears =
-    job.experienceLevel === 'junior'
-      ? 0
-      : job.experienceLevel === 'mid'
-        ? 2
-        : job.experienceLevel === 'senior'
-          ? 5
-          : 8
+  const requiredYears = REQUIRED_YEARS[job.experienceLevel]
 
   if (candidate.experienceYears < requiredYears) {
     return false
