@@ -1,0 +1,15 @@
+# Etapa builder: compilamos con la imagen de Go, que trae todo el toolchain
+FROM golang:1.24-alpine AS builder
+
+WORKDIR /src
+
+COPY . .
+
+RUN go build -o /server main.go
+
+# Etapa runner: solo el binario sobre Alpine, sin Go ni código fuente
+FROM alpine:3.20 AS runner
+
+COPY --from=builder /server /server
+
+CMD ["/server"]
