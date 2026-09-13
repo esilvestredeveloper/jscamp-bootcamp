@@ -12,7 +12,7 @@ describe("task helpers", () => {
     expect(stats).toEqual({
       total: 3,
       completed: 1,
-      pending: 2,
+      pending: 5,
       progress: 33,
     });
   });
