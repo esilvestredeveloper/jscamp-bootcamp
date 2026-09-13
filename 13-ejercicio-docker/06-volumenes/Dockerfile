@@ -6,4 +6,5 @@ COPY server.js .
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+# Con --watch Node se reinicia solo cuando cambia server.js desde el bind mount
+CMD ["node", "--watch", "server.js"]
