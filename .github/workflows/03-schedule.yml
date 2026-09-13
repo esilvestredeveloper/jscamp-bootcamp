@@ -1,0 +1,18 @@
+name: 03 - Schedule
+
+on:
+  schedule:
+    # Orden del cron:
+    # minuto (0) hora (7) día mes (*) mes (*) día semana (1 = lunes)
+    # GitHub usa UTC, ponemos las 7 para que sea el lunes a las 9 en España con horario de verano
+    - cron: '0 7 * * 1'
+
+  # Lo dejamos para poder probarlo sin esperar al lunes
+  workflow_dispatch:
+
+jobs:
+  schedule:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Saludar
+        run: echo "Hola desde GitHub Actions!"
