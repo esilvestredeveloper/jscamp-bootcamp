@@ -1,0 +1,33 @@
+name: Setup pnpm and Node.js for CI/CD
+description: Setup pnpm and Node.js for CI/CD
+
+inputs:
+  node-version:
+    description: "Node.js version"
+    required: false
+    default: "24"
+  pnpm-version:
+    description: "pnpm version"
+    required: false
+    default: "11"
+
+runs:
+  using: 'composite'
+  steps:
+    # pnpm va antes que Node para que setup-node lo encuentre si activamos la caché
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v6
+      with:
+        version: ${{ inputs.pnpm-version }}
+        run_install: false
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    # Los defaults del workflow no llegan a la action, por eso tenemos que indicar la carpeta
+    - name: Install dependencies
+      shell: bash
+      working-directory: 12-ejercicio-cicd
+      run: pnpm install --frozen-lockfile
