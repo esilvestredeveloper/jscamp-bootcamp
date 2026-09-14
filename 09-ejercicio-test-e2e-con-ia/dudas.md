@@ -16,3 +16,21 @@ Mi duda es:
 ¿Con qué modelo lo probasteis vosotros? ¿Algún modelo que recomiendes? Tengo un Mac M1 Pro con 16 GB de RAM, lo malo es que con todo abierto está al 60-70 % de RAM.
 
 Muchas gracias.
+
+---
+
+**Respuesta:**
+
+Hola! Lo que hiciste está muy bien: el árbol de accesibilidad llega bien y el problema es la precisión del modelo al elegir el elemento (no es un problema tuyo al escribir las instrucciones).
+
+`act` es la operación más difícil para los modelos pequeños (porque tiene que señalar un elemento exacto del árbol), mientras que `extract` y `observe` son más fáciles de implementar.
+
+Nosotros usamos la API de OpenAI con el mismo modelo que eligió midu. Depende el servicio pero alguno modelos de google, y modelos chinos como DeepSeek v4-flash deberían ir muy bien en esto. No he usado otros en tests para poder decirte: este si y este no.
+
+Para la configuración de tu PC, probaría `llama3.1:8b`, es la otra opción un poco más pesada que `7b` pero no tanto. Y debería de andar mejor.
+
+Siempre cuando mejor es el modelo, mejor van a ir los tests. La limitante en modelos locales es el hardware. Luego hay otros que irían mejor pero ya te quedaría muy limitado.
+
+- `qwen2.5:7b` es ya de lo mejor en 7B; `llama3.1:8b` es la otra opción que te recomiendo probar (sigue instrucciones algo mejor en algunos casos).
+- `qwen2.5:14b` sería el salto de precisión, pero pesa ~9 GB: con tu RAM al 60-70 % no cabe cómodo. Solo si cierras todo lo demás.
+- Con 3B no vas a conseguir un `act` fiable, como ya comprobaste.
