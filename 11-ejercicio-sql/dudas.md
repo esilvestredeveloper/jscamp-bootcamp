@@ -44,3 +44,17 @@ curl -X PATCH http://localhost:3000/jobs/7a4d1d8b-1e45-4d8c-9f1a-8c2f9a9121a4 \
 # Eliminar un job (responde 204 sin body)
 curl -i -X DELETE http://localhost:3000/jobs/f91e4c7b-3840-43da-8ad7-3a52e2a8cf1d
 ```
+
+---
+
+**Respuesta:**
+
+Hola crack! Muy bien visto, que buen ojo! Toda la razón en los 4 puntos:
+La sección "Verificar que funciona" del README quedó desactualizada respecto al código que
+te entregamos (el controlador ya traía `?tech=`, `PATCH` y UUIDs desde antes del
+ejercicio).
+
+La API debe respetar lo que ya estaba implementado (`?tech=`, `PATCH`, IDs UUID),
+así que no hace falta que cambies nada.
+
+El ejercicio lo hiciste perfecto! :)
